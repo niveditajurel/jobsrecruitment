@@ -1,0 +1,130 @@
+<html><head>
+	<title></title>
+</head>
+<body>
+<form>
+	Register Number:<br><input type="text" name="Register Number" id="regnum" placeholder="Register Number"><br>
+	Name:<br><input type="text" name="Name" id="name" placeholder="Name">
+	<br>
+	Course 1:<br><input type="number" name="Course 1" id="m1" placeholder="Mark 1"><br>
+	Course 2:<br><input type="number" name="Course 2" id="m2" placeholder="Mark 2"><br>
+	Course 3:<br><input type="number" name="Course 3" id="m3" placeholder="Mark 3"><br>
+	
+</form>
+
+<input type="submit" value="Result" name="" id="result" onclick="sub()">
+
+<br>
+<br>
+<table id="resulttable" style="display: none;">
+	<tbody><tr>
+		<th>Register Number</th>
+		<th>Name</th>
+		<th>GRADE 1</th> 
+		<th>GRADE 2</th>
+		<th>GRADE 3</th>
+	</tr>
+	<tr>
+		<td id="rr"></td>
+		<td id="nr"></td>
+		<td id="m1r"></td>
+		<td id="m2r"></td>
+		<td id="m3r"></td>
+	</tr>
+</tbody></table>
+
+<script type="text/javascript">
+	function sub() 
+	{
+		var regnum=document.getElementById('regnum').value;
+		var nme=document.getElementById('name').value;
+		var m1 =document.getElementById('m1').value;
+		var m2 =document.getElementById('m2').value;
+		var m3 =document.getElementById('m3').value;
+		
+		if (regnum.length==0 ||nme.length==0 ||m1.length==0 ||m2.length==0 ||m3.length==0 ) 
+		{
+			alert("All Fields are mandatory");
+		}
+		else
+		{
+			if (m1<=100 && m2<=100 && m3<=100) {
+			if((m1>90 && m1<100))
+			{
+				m1='A';
+			}
+			if (m2>90 && m2<100)
+			{
+				m2='A';
+			}
+			if (m3>90 && m3<100)
+			{
+				m3='A';
+			}
+			if((m1>75 && m1<90))
+			{
+				m1='B';
+			}
+			if (m2>75 && m2<90)
+			{
+				m2='B';
+			}
+			if (m3>75 && m3<90)
+			{
+				m3='B';
+			}
+			if((m1>60 && m1<75))
+			{
+				m1='C';
+			}
+			if (m2>60 && m2<75)
+			{
+				m2='C';
+			}
+			if (m3>60 && m3<75)
+			{
+				m3='C';
+			}
+			if((m1<60 && m1>25))
+			{
+				m1='D';
+
+			}
+			if (m2<60 && m1>25)
+			{
+				m2='D';
+			}
+			if (m3<60 && m2>25)
+			{
+				m3='D';
+			}
+			if((m1<25))
+			{
+				m1='Fail';
+			}
+			if (m2<25)
+			{
+				m2='Fail';
+			}
+			if (m3<25)
+			{
+				m3='Fail';
+			}
+			
+			document.getElementById('resulttable').style.display="block";
+			document.getElementById('rr').innerHTML=regnum;
+			document.getElementById('nr').innerHTML=nme;
+			document.getElementById('m1r').innerHTML=m1;
+			document.getElementById('m2r').innerHTML=m2;
+			document.getElementById('m3r').innerHTML=m3;
+		}
+			else
+			{
+			alert("Marks Should not be greater than 100");
+			}
+		}
+
+	}
+</script>
+
+</body></html>
